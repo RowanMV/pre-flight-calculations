@@ -17,6 +17,8 @@ def weightinp(raw: str) -> float:
     weighttypes = {"lbs", "pounds", "lb"}
     if weightdata[1] in weighttypes:
         return weightconv(float(weightdata[0]))
+    else:
+        return float(weightdata[0])
 
 def lengthinp(raw: str) -> float:
     '''
@@ -25,6 +27,8 @@ def lengthinp(raw: str) -> float:
     lengthtype = {"inch", "inches", "in"}
     if lengthdata[1] in lengthtype:
         return lengthconv(float(lengthdata[0]))
+    else:
+        return float(lengthdata[0])
 
 def check(raw: str) -> bool:
     '''
