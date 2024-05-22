@@ -28,4 +28,11 @@ def lengthinp(raw: str) -> float:
     lengthtype = {"inch", "inches", "in"}
     if lengthdata[1] in lengthtype:
         lengthconv(lengthdata[0])
-    raise NotImplementedError
+
+def check(raw: str) -> bool:
+    '''
+    Function checks if any numbers have been added as input'''
+    for char in raw:
+        if char.isnumeric():
+            return True
+    return False
