@@ -19,3 +19,11 @@ def lengthinp(raw: str) -> int:
     '''
     Takes as input the string inputted by the user, detects the units and converts it into an integer in metres'''
     raise NotImplementedError
+
+def check(raw: str) -> bool:
+    '''
+    Function checks if any numbers have been added as input'''
+    for char in raw:
+        if char.isnumeric():
+            return True
+    return False
