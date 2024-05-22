@@ -27,5 +27,5 @@ def lengthinp(raw: str) -> float:
     lengthdata = raw.split(1)
     lengthtype = {"inch", "inches", "in"}
     if lengthdata[1] in lengthtype:
-        lengthconv(weight_data[0])
+        lengthconv(lengthdata[0])
     raise NotImplementedError
