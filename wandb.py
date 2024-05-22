@@ -9,3 +9,13 @@ def lengthconv(inches: int) -> int:
     '''
     Takes length in inches as input and converts it to metres'''
     raise NotImplementedError
+
+def weightinp(raw: str) -> int:
+    '''
+    Takes as input the string inputted by the user, detects the units and converts it into an integer in kilogrammes'''
+    raise NotImplementedError
+
+def lengthinp(raw: str) -> int:
+    '''
+    Takes as input the string inputted by the user, detects the units and converts it into an integer in metres'''
+    raise NotImplementedError
