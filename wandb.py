@@ -4,13 +4,11 @@ def weightconv(pounds: float) -> float:
     '''
     Takes weight in pounds as input and converts it to kilogrammes'''
     return pounds*0.453592
-    raise NotImplementedError
 
 def lengthconv(inches: float) -> float:
     '''
     Takes length in inches as input and converts it to metres'''
     return inches*0.0254
-    raise NotImplementedError
 
 def weightinp(raw: str) -> float:
     '''
@@ -19,7 +17,6 @@ def weightinp(raw: str) -> float:
     weighttypes = {"lbs", "pounds", "lb"}
     if weightdata[1] in weighttypes:
         weightconv(weightdata[0])
-    raise NotImplementedError
 
 def lengthinp(raw: str) -> float:
     '''
