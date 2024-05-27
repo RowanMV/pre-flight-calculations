@@ -30,7 +30,7 @@ elif 'METAR' in raw:
                 level = int(data[-3:])
                 height = str(int * 100)
                 cldtype = cloud[data[:4]]
-                output += '{cloudtype} at {height} feet. '
+                output += f'{cldtype} at {height} feet. '
                 if 'TCU' in statement:
                     # Additional processing for towering cumulus
                     raise NotImplementedError
