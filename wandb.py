@@ -1,11 +1,11 @@
 # Currently need 2 unit converters, one from pounds to kg and one from inches to metre
 
-def weightconv(pounds: float) -> float:
+def lbs2kg(pounds: float) -> float:
     '''
     Takes weight in pounds as input and converts it to kilogrammes'''
     return pounds*0.453592
 
-def lengthconv(inches: float) -> float:
+def in2m(inches: float) -> float:
     '''
     Takes length in inches as input and converts it to metres'''
     return inches*0.0254
@@ -16,7 +16,7 @@ def weightinp(raw: str) -> float:
     weightdata = raw.split(' ', 1)
     weighttypes = {"lbs", "pounds", "lb"}   
     if weightdata[1] in weighttypes:
-        return weightconv(float(weightdata[0]))
+        return lbs2kg(float(weightdata[0]))
     else:
         return float(weightdata[0])
 
@@ -26,7 +26,7 @@ def lengthinp(raw: str) -> float:
     lengthdata = raw.split(' ', 1)
     lengthtype = {"inch", "inches", "in"}
     if lengthdata[1] in lengthtype:
-        return lengthconv(float(lengthdata[0]))
+        return in2m(float(lengthdata[0]))
     else:
         return float(lengthdata[0])
 
