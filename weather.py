@@ -89,5 +89,62 @@ elif 'METAR' in raw:
                 
                 
 
-    print(output)
-    raise NotImplementedError
+    def decode_metar_qnh(metar_qnh):
+
+        #Dic mapping digits to words
+        digits_to_words = {
+            '0': 'zero',
+            '1': 'one',
+            '2': 'two',
+            '3': 'three',
+            '4': 'four',
+            '5': 'five',
+            '6': 'six',
+            '7': 'seven',
+            '8': 'eight',
+            '9': 'nine'
+        }
+
+    
+            
+            
+        # Check if input begins with Q and has 4 digits following
+        if metar_qnh.startswith('Q') and len(metar_qnh) == 5 and metar_qnh[1:].isdigit():
+            # Keep the numbers portion
+            qnh_numbers = metar_qnh[1:]
+
+        
+            
+            return qnh_numbers
+        else:
+            return None
+
+    for statement in data:
+        qnh_output = decode_metar_qnh(statement)
+        if qnh_output:
+            output += f'Local pressure setting is {qnh_output} hPa. '
+
+    
+        
+    
+
+            
+            
+                
+        
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+print(output)
+    
