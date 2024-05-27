@@ -20,4 +20,3 @@ elif 'METAR' in raw:
     time = data[2][2:]
     wind = data[3]
     vis = data[4]
-    pass
