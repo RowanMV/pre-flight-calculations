@@ -25,10 +25,19 @@ elif 'METAR' in raw:
 
     # Iterate through each statement in the dataset and check if there is any information about cloud layer
     for statement in data:
-        if cloud.keys() in statement:
-            level = int(data[-3:])
-            height = str(int * 1000)
-            cldtype = cloud[data[:4]]
-            output += '{cloudtype} at {height} feet'
+        for key in cloud.keys():
+            if key in statement:
+                level = int(data[-3:])
+                height = str(int * 1000)
+                cldtype = cloud[data[:4]]
+                output += '{cloudtype} at {height} feet. '
+                if 'TCU' in statement:
+                    # Additional processing for towering cumulus
+                    raise NotImplementedError
+                
+                elif 'CB' in statement:
+                    # Additional processing for cumulonimbus
+                    raise NotImplementedError
 
+    print(output)
     raise NotImplementedError
