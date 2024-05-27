@@ -1,11 +1,43 @@
 raw = input('Input the weather forecast: ')
 
-# Decoding
+# Decoding dictionaries
 cloud = {
     'FEW': 'Few clouds',
     'SCT': 'Scattered layer',
     'BKN': 'Broken layer',
     'OVC': 'Overcast layer'
+}
+wthr = {
+    'BC': 'patches',
+    'BL': 'blowing',
+    'BR': 'mist',
+    'DR': 'drifting',
+    'BC': 'duststorm',
+    'DU': 'dust',
+    'DZ': 'drizzle',
+    'FC': 'funnel cloud',
+    'FG': 'fog',
+    'FU': 'smoke',
+    'FZ': 'freezing',
+    'GR': 'hail',
+    'GS': 'small hail',
+    'HZ': 'haze',
+    'IC': 'ice crystals',
+    'MI': 'shallow',
+    'PL': 'ice pellets',
+    'PO': 'dust devils',
+    'PR': 'banks',
+    'RA': 'rain',
+    'SA': 'sand',
+    'SH': 'showers',
+    'SG': 'snow grain',
+    'SN': 'snow',
+    'SQ': 'squalls',
+    'SS': 'sandstorm',
+    'TS': 'thunderstorm',
+    'VA': 'volcanic ash',
+    'VC': 'in vicinity',
+    'UP': 'unidentified precipitation'
 }
 
 
