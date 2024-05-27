@@ -28,7 +28,7 @@ elif 'METAR' in raw:
         for key in cloud.keys():
             if key in statement:
                 level = int(data[-3:])
-                height = str(int * 1000)
+                height = str(int * 100)
                 cldtype = cloud[data[:4]]
                 output += '{cloudtype} at {height} feet. '
                 if 'TCU' in statement:
