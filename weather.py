@@ -62,9 +62,10 @@ elif 'METAR' in raw:
         vel = data[3:5]
         gust = data [6:-2]
         wind = f'{dir} at {vel} knots gusting to {gust} knots.'
+    #  !TODO deal with variable winds
     
     vis = data[4]
-    output = f'METAR observation for aerodrome {ad} taken at the {day} day of the month at {time} UTC. Winds are {NotImplementedError} and visibility is {vis}.'
+    output = f'METAR observation for aerodrome {ad} taken at the {day} day of the month at {time} UTC. Winds are {wind} and visibility is {vis}.'
 
     # Iterate through each statement in the dataset and check if there is any information about cloud layer
     for statement in data:
