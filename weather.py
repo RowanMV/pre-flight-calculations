@@ -5,7 +5,8 @@ cloud = {
     'FEW': 'Few clouds',
     'SCT': 'Scattered layer',
     'BKN': 'Broken layer',
-    'OVC': 'Overcast layer'
+    'OVC': 'Overcast layer',
+    'NSC': 'No significant cloud'
 }
 wthr = {
     'BC': 'patches',
@@ -72,14 +73,20 @@ elif 'METAR' in raw:
                 level = int(statement[-3:])
                 height = str(level * 100)
                 cldtype = cloud[statement[:3]]
-                output += f' {cldtype} at {height} feet.'
                 if 'TCU' in statement:
                     # Additional processing for towering cumulus
-                    raise NotImplementedError
+                    output += f' {cldtype} towering cumulus at {height} feet.'
                 
                 elif 'CB' in statement:
                     # Additional processing for cumulonimbus
-                    raise NotImplementedError
+                    output += f' {cldtype} cumulonimbus at {height} feet.'
+                
+                else:
+                    output += f' {cldtype} at {height} feet.'
+                
+                
+                
+                
 
     print(output)
     raise NotImplementedError
