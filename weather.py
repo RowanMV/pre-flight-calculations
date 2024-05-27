@@ -41,6 +41,20 @@ wthr = {
     'UP': 'unidentified precipitation'
 }
 
+#Dic mapping digits to words
+digits_to_words = {
+    '0': 'zero',
+    '1': 'one',
+    '2': 'two',
+    '3': 'three',
+    '4': 'four',
+    '5': 'five',
+    '6': 'six',
+    '7': 'seven',
+    '8': 'eight',
+    '9': 'nine'
+}
+
 
 if 'TAF' in raw:
     # Start processing a standard TAF message
@@ -84,10 +98,10 @@ elif 'METAR' in raw:
                 
                 else:
                     output += f' {cldtype} at {height} feet.'
-                
-                
-                
-                
-
-    print(output)
-    raise NotImplementedError
+                    
+        # Check if input begins with Q and has 4 digits following
+        if statement.startswith('Q') and len(statement) == 5 and statement[1:].isdigit():
+            # Keep the numbers portion
+            qnh_numbers = statement[1:]
+            output += f'Local pressure setting is {qnh_numbers} hPa. '
+    print(output)    
