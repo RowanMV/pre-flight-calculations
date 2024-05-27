@@ -99,7 +99,6 @@ elif 'METAR' in raw:
                 else:
                     output += f' {cldtype} at {height} feet.'
                     
-    for statement in data:
         # Check if input begins with Q and has 4 digits following
         if statement.startswith('Q') and len(statement) == 5 and statement[1:].isdigit():
             # Keep the numbers portion
