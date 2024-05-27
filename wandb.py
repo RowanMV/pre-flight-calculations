@@ -14,7 +14,7 @@ def weightinp(raw: str) -> float:
     '''
     Takes as input the string inputted by the user, detects the units and converts it into a float in kilogrammes'''
     weightdata = raw.split(' ', 1)
-    weighttypes = {"lbs", "pounds", "lb"}
+    weighttypes = {"lbs", "pounds", "lb"}   
     if weightdata[1] in weighttypes:
         return weightconv(float(weightdata[0]))
     else:
