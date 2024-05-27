@@ -1,4 +1,14 @@
 raw = input('Input the weather forecast: ')
+
+# Decoding
+cloud = {
+    'FEW': 'few',
+    'SCT': 'scattered',
+    'BKN': 'broken',
+    'OVC': 'overcast'
+}
+
+
 if 'TAF' in raw:
     # Start processing a standard TAF message
     pass
