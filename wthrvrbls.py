@@ -51,3 +51,12 @@ digits_to_words = {
     '8': 'eight',
     '9': 'nine'
 }
+
+def windspeed(inp: str) -> str:
+    '''
+    Takes as input the windspeed data and converts it into readable english'''
+    if len(inp) == 7:
+        out = f'and at a speed of {inp[:2]} knots gusting up to {inp[3:5]} knots'
+    elif len(inp) == 4:
+        out = f'and at a speed of {inp[:2]} knots.'
+    return out 

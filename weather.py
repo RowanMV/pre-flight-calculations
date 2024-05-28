@@ -1,4 +1,4 @@
-from wthrvrbls import cloud, wthr, digits_to_words
+from wthrvrbls import cloud, wthr, digits_to_words, windspeed
 
 raw = input('Input the weather forecast: ')
 
@@ -12,20 +12,34 @@ elif 'METAR' in raw:
     ad = data[1]
     day = data[2][:2]
     time = data[2][2:]
-    # Processing wind data
-    if len(data[3]) == 7:
-        dir = data[3][:3]
-        vel = data[3:-2]
-        wind = f'{dir} at {vel} knots'
+
+    # Check if METAR is automatically generated
+    if 'AUTO' in data:
+        data.remove('AUTO')
+        output = 'Automatically generated '
     else:
-        dir = data[3][:3]
-        vel = data[3:5]
-        gust = data [6:-2]
-        wind = f'{dir} at {vel} knots gusting to {gust} knots.'
-    #  !TODO deal with variable winds
+        output = ''
+
+
+    # Processing wind data 180V240 12G18KT, VRB05KT, 140V200 08KT, 12008KT, 31015G27KT
+    if data[3][3] == 'V':  
+        # Only true for if wind direction varies within a range
+        dir = f'variable from between {data[3][:3]} and {data[4:]}'
+        vel = windspeed(data[4])
+        vis = data[5]
+        wind = dir + vel
+    elif data[3][-2:] == 'KT':  
+        # Only true if wind speed information is contained
+        if data[3][:3] == 'VRB':
+            dir = 'variable'
+        else:
+            dir = f'from {data[3][:3]}'
+        vel = windspeed(data[3][3:])
+        vis = data[4]
+        wind = vel + dir
     
-    vis = data[4]
-    output = f'METAR observation for aerodrome {ad} taken at the {day} day of the month at {time} UTC. Winds are {wind} and visibility is {vis}.'
+    
+    output += f'METAR observation for aerodrome {ad} taken at the {day} day of the month at {time} UTC. Winds are {wind}. Visibility is {vis}.'
 
     # Iterate through each statement in the dataset and check if there is any information about cloud layer
     for statement in data:
@@ -50,4 +64,4 @@ elif 'METAR' in raw:
             # Keep the numbers portion
             qnh_numbers = statement[1:]
             output += f'Local pressure setting is {qnh_numbers} hPa. '
-    print(output)    
+print(output)    
