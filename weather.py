@@ -24,19 +24,19 @@ elif 'METAR' in raw:
     # Processing wind data 180V240 12G18KT, VRB05KT, 140V200 08KT, 12008KT, 31015G27KT
     if data[3][3] == 'V':  
         # Only true for if wind direction varies within a range
-        dir = f'variable from between {data[3][:3]} and {data[4:]}'
+        dir = f'variable from between {data[3][:3]} and {data[3][4:]} '
         vel = windspeed(data[4])
         vis = data[5]
         wind = dir + vel
     elif data[3][-2:] == 'KT':  
         # Only true if wind speed information is contained
         if data[3][:3] == 'VRB':
-            dir = 'variable'
+            dir = 'variable '
         else:
             dir = f'from {data[3][:3]}'
         vel = windspeed(data[3][3:])
         vis = data[4]
-        wind = vel + dir
+        wind = dir + vel
     
     
     output += f'METAR observation for aerodrome {ad} taken at the {day} day of the month at {time} UTC. Winds are {wind}. Visibility is {vis}.'
@@ -63,5 +63,5 @@ elif 'METAR' in raw:
         if statement.startswith('Q') and len(statement) == 5 and statement[1:].isdigit():
             # Keep the numbers portion
             qnh_numbers = statement[1:]
-            output += f'Local pressure setting is {qnh_numbers} hPa. '
+            output += f' Local pressure setting is {qnh_numbers} hPa. '
 print(output)    
